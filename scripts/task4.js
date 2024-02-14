@@ -1,5 +1,7 @@
 window.onload = function(){
     let table = new Table();
+    
+    //Call the calculateCatAge three times.
     for(i=3; i< 6; i++){
         let catAge = calculateCatAge(i);
         table.addAge(i, catAge);
@@ -7,11 +9,16 @@ window.onload = function(){
     document.getElementById("placeholder").innerHTML = table.generate();
 };
 
-function calculateCatAge(age)
+/**
+ * Calculates the cat age.
+ * @param {*} humanAge 
+ * @returns the cat age.
+ */
+function calculateCatAge(humanAge)
 {
-    let estimatedAge = 0;
-    estimatedAge = age * 7;
-    return estimatedAge;
+    let catAge = 0;
+    catAge = humanAge * 7;
+    return catAge;
 }
 
 class Table{
@@ -28,7 +35,7 @@ class Table{
         const etable = "</table>";
         let rows = "";
         for(let j=0; j< this.catAgeData.length; j++){
-            rows = rows + `<tr><td>${this.universalAgeData[j]}</td><td>Your cat is ${this.catAgeData[j]} years old in cat years</td><tr>`;
+            rows = rows + `<tr><td><img src="images/tiger.png" width="300px"><br />${this.universalAgeData[j]}</td><td><span style="font-weight: bold;font-size:40px;">Your cat is ${this.catAgeData[j]} years old in cat years!</td><tr>`;
         }
         let retVal = `${table}${header}${rows}${etable}`;
         return retVal;

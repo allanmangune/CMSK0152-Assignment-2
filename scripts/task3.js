@@ -2,11 +2,12 @@ window.onload = function(){
     var total = 0;
     var list = new List();
 
-    function addMe(avalue){
-        total = total + avalue;
+    function addMe(x){
+        total = total + x;
         return total;
     }
 
+    //Call the addMe function three times.
     for(let j=1; j< 4; j++){
         addMe(j);
         list.addSum(total);
